@@ -1,0 +1,3 @@
+= Schrodingers cat
+
+Gradle-project that crashes with a 50% probability.
