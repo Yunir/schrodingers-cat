@@ -1,6 +1,5 @@
 
 fun main() {
-    println(checkSealedBox())
+    val box = Box()
+    println(box.unsealTheBox())
 }
-
-fun checkSealedBox() = if (Math.random() > 0.5) "Meow!" else "..."
