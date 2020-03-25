@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.github.yunir"
-version = "0.1"
+version = "0.2"
 
 application {
     mainClassName = "MainKt"
@@ -31,3 +31,15 @@ tasks {
         useJUnitPlatform()
     }
 }
+
+class QuotePlugin : Plugin<Project> {
+    override fun apply(project: Project) {
+        project.gradle.buildFinished() {
+            if (this.failure != null) {
+                println("\"To be, or not to be: that is the question\" (c) William Shakespeare")
+            }
+        }
+    }
+}
+
+apply<QuotePlugin>()
