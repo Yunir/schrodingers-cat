@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.github.yunir"
-version = "0.3"
+version = "1.0"
 
 application {
     mainClassName = "MainKt"
@@ -18,6 +18,7 @@ dependencies {
     implementation(kotlin("stdlib-jdk8"))
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.1.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.1.0")
+    implementation("org.jsoup:jsoup:1.10.3")
 }
 
 tasks {
@@ -30,6 +31,16 @@ tasks {
     test {
         useJUnitPlatform()
     }
+    build {
+        finalizedBy("unstable")
+    }
+}
+
+tasks.register("unstable") {
+    group = "chance"
+    doLast {
+        if (Math.random() > 0.5) throw TaskExecutionException(this, Exception("Try again..."))
+    }
 }
 
 buildscript {
@@ -39,7 +50,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath("com.yunir:quote-when-fail:0.1")
+        classpath("com.yunir:quote-when-fail:1.1")
     }
 }
 apply(plugin = "com.yunir.quote-when-fail")
