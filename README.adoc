@@ -1,3 +1,8 @@
 = Schrodingers cat
 
 Gradle-project that crashes with a 50% probability.
+
+To enable standalone plugin:
+
+1. build it to your local maven repository
+1. change path for that repository in buildscript section

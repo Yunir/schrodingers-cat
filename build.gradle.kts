@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.github.yunir"
-version = "0.2"
+version = "0.3"
 
 application {
     mainClassName = "MainKt"
@@ -32,14 +32,14 @@ tasks {
     }
 }
 
-class QuotePlugin : Plugin<Project> {
-    override fun apply(project: Project) {
-        project.gradle.buildFinished() {
-            if (this.failure != null) {
-                println("\"To be, or not to be: that is the question\" (c) William Shakespeare")
-            }
+buildscript {
+    repositories {
+        maven {
+            url = uri("/path/to/.m2/repository")
         }
     }
+    dependencies {
+        classpath("com.yunir:quote-when-fail:0.1")
+    }
 }
-
-apply<QuotePlugin>()
+apply(plugin = "com.yunir.quote-when-fail")
