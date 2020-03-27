@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.github.yunir"
-version = "1.0"
+version = "1.1"
 
 application {
     mainClassName = "MainKt"
@@ -18,7 +18,6 @@ dependencies {
     implementation(kotlin("stdlib-jdk8"))
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.1.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.1.0")
-    implementation("org.jsoup:jsoup:1.10.3")
 }
 
 tasks {
@@ -45,9 +44,7 @@ tasks.register("unstable") {
 
 buildscript {
     repositories {
-        maven {
-            url = uri("/path/to/.m2/repository")
-        }
+        mavenLocal()
     }
     dependencies {
         classpath("com.yunir:quote-when-fail:1.1")

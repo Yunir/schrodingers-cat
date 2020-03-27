@@ -7,5 +7,3 @@ Gradle-project that crashes with a 50% probability.
 To try your luck, run the gradle `build` task that will be finalized by the `unstable` task.
 
 If that task fail, then you will see quote from bash.org.
-
-IMPORTANT: declare path to your maven local repo where quote-when-fail plugin was uploaded. See instructions here: https://github.com/Yunir/quote-when-fail#how-to-apply-plugin[how-to-apply-plugin]
